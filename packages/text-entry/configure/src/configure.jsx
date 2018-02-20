@@ -1,92 +1,15 @@
 import { withStyles } from 'material-ui/styles';
 import React from 'react';
-import { Typography, TextField, FormControl, Select, MenuItem } from 'material-ui';
-import { Checkbox, FeedbackConfig, TagsInput, NChoice, InputCheckbox } from '@pie-libs/config-ui';
-import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
-import { Cancel } from 'material-ui-icons';
+import { Typography, TextField } from 'material-ui';
+import { FeedbackConfig } from '@pie-libs/config-ui';
 import IconButton from 'material-ui/IconButton';
 import debug from 'debug';
 import Responses from './responses';
 import PropTypes from 'prop-types';
-import Box from './box';
-import { feedbackConfigToTextEntry, textEntryToFeedbackConfig } from './feedback-mapper';
 import range from 'lodash/range';
+import ModelConfig from './model-config';
 
-const log = debug('pie-elements:text-entry:configure');
-
-class RawModelConfig extends React.Component {
-
-  onChange = (key) => (event) => {
-    this.props.config[key] = event.target.checked;
-    this.props.onChange(this.props.config);
-  }
-
-  onAlignmentChange = (alignment) => {
-    this.props.config.answerAlignment = alignment;
-    this.props.onChange(this.props.config);
-  }
-
-  onAnswerSizeChange = (size) => {
-    this.props.config.answerBlankSize = size;
-    this.props.onChange(this.props.config);
-  }
-
-  render() {
-
-    const { onChange, config, classes } = this.props;
-
-    const { allowIntegersOnly } = config;
-
-    const sizeOpts = range(2, 14, 2).map(v => ({ label: v.toString(), value: v.toString() }));
-
-    return (
-      <Box>
-        <Typography>Options</Typography>
-        <br />
-        <div className={classes.numberOpts}>
-          <InputCheckbox label="Numbers only"
-            checked={allowIntegersOnly}
-            onChange={this.onChange('allowIntegersOnly')} />
-
-          {allowIntegersOnly && <InputCheckbox
-            label="Decimals"
-            checked={config.allowDecimal}
-            onChange={this.onChange('allowDecimal')} />}
-          {allowIntegersOnly && <InputCheckbox
-            label="Thousands separator"
-            checked={config.allowThousandsSeparator}
-            onChange={this.onChange('allowThousandsSeparator')} />}
-          {allowIntegersOnly && <InputCheckbox label="Negative"
-            checked={config.allowNegative}
-            onChange={this.onChange('allowNegative')} />}
-        </div>
-        <NChoice
-          header={'Answer Size'}
-          value={config.answerBlankSize}
-          opts={sizeOpts}
-          onChange={this.onAnswerSizeChange} />
-        <NChoice
-          header={'Answer Alignment'}
-          value={config.answerAlignment}
-          opts={[
-            { label: 'left', value: 'left' },
-            { label: 'center', value: 'center' },
-            { label: 'right', value: 'right' }
-          ]}
-          onChange={this.onAlignmentChange} />
-      </Box>
-    )
-  }
-}
-
-const ModelConfig = withStyles(theme => ({
-  numberOpts: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between'
-  }
-}))(RawModelConfig);
-
+const log = debug('@corespring-pie:text-entry:configure');
 
 const styles = theme => ({
   award: {
@@ -133,14 +56,14 @@ class Configure extends React.Component {
   render() {
     const { classes, model } = this.props;
 
-    const feedbackConfig = textEntryToFeedbackConfig(model);
+    const feedbackConfig = {} //textEntryToFeedbackConfig(model);
 
-    log('[render]: feedbackConfig', feedbackConfig);
-
+    // log('[render]: feedbackConfig', feedbackConfig);
+    log('[render] model', model);
     //This configure ui only supports 'en-US' for now.
-    const onlyEnUs = (v => v.lang === 'en-US');
-    model.correctResponses.values = model.correctResponses.values.filter(onlyEnUs);
-    model.partialResponses.values = model.partialResponses.values.filter(onlyEnUs);
+    // const onlyEnUs = (v => v.lang === 'en-US');
+    // model.correctResponses.values = model.correctResponses.values.filter(onlyEnUs);
+    // model.partialResponses.values = model.partialResponses.values.filter(onlyEnUs);
 
     return (
       <div>
@@ -164,9 +87,7 @@ class Configure extends React.Component {
             <TextField className={classes.award} placeholder="0" label="Award % for partially correct answer" />
           </div>
         </Responses>
-
         <ModelConfig config={model.model} onChange={this.onModelConfigChange} />
-
         <FeedbackConfig
           feedback={feedbackConfig}
           onChange={this.onFeedbackChange} />

@@ -9,7 +9,7 @@ module.exports = {
       element: 'text-entry',
       correctResponses: {
         values: ['mutt', 'hound'],
-        ignoreWhitespace: false,
+        ignoreWhitespace: true,
         ignoreCase: false,
         feedback: {
           type: 'custom',

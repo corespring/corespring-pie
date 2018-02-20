@@ -40,13 +40,13 @@ class RawResponses extends React.Component {
     const { responses, label, subHeader, children, classes, onChange } = this.props;
     log('[responses]: ', responses);
 
-    const values = responses.values.map(v => v.value);
-    log('[values]: ', values);
+    // const values = responses.values.map(v => v.value);
+    // log('[values]: ', values);
     return (
       <Box>
         <Typography type="body1">{label}</Typography>
         <SubHeader>{subHeader}</SubHeader>
-        <TagsInput onChange={this.onAnswersChange} tags={values} />
+        <TagsInput onChange={this.onAnswersChange} tags={responses.values} />
         <div className={classes.checkboxHolder}>
           <InputCheckbox
             label="Ignore Case"

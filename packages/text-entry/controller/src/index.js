@@ -68,11 +68,11 @@ const expandIncorrectFeedback = ifb => {
 
 
 const expandModel = (q) => ({
-  defaultLang: 'en-US'
+  defaultLang: 'en-US',
   correctResponses: expandResponses(q.correctResponses),
   partialResponses: expandResponses(q.partialResponses),
-  incorrectFeedback: expandIncorrectFeedback(q.incorrectFeedback)
-  model: { ...q.model }
+  incorrectFeedback: expandIncorrectFeedback(q.incorrectFeedback),
+  model: q.model
 });
 
 export function model(question, session, env) {
