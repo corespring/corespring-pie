@@ -31,7 +31,7 @@ module.exports = {
           label: 'Finland',
           feedback: {
             type: 'custom',
-            text: 'Finland joined the EU in 1995'
+            value: 'Finland joined the EU in 1995'
           }
         }
       ]

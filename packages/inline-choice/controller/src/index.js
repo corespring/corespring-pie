@@ -8,7 +8,7 @@ const expandFeedback = fb => {
   } else {
     return {
       type: fb.type || 'default',
-      text: fb.type === 'custom' && fb.text ? [{ lang: 'en-US', value: fb.text }] : []
+      text: fb.type === 'custom' && fb.value ? [{ lang: 'en-US', value: fb.value }] : []
     }
   }
 }

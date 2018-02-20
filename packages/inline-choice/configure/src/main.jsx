@@ -5,6 +5,9 @@ import EditableHtml from '@pie-libs/editable-html';
 import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
+import debug from 'debug';
+
+const log = debug('@corespring-pie:inline-choice-configure');
 
 const Choice = withStyles(theme => ({
   choice: {
@@ -45,6 +48,8 @@ export class RawMain extends React.Component {
 
   render() {
     const { model, classes, onRemoveChoice, onAddChoice } = this.props;
+
+    log('choices', model.choices);
 
     return (
       <div>
