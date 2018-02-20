@@ -1,0 +1,8 @@
+{
+  "name": "@corespring-pie/inline-choice-controller",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "dependencies": {
+    "@pie-elements/inline-choice-controller": "^1.1.6"
+  }
+}
