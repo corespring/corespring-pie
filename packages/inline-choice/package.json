@@ -1,7 +1,7 @@
 {
   "name": "@corespring-pie/inline-choice",
   "version": "1.0.1",
-  "description": "",
+  "description": "An inline-choice component.",
   "main": "src/index.js",
   "scripts": {
     "configure-test": "cd configure && jest --verbose",
@@ -10,7 +10,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "author": "",
+  "author": "ed.eustace@gmail.com",
   "license": "ISC",
   "dependencies": {
     "@pie-elements/inline-choice-element": "^1.1.6"
