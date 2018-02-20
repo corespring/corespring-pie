@@ -15,6 +15,8 @@ const expandFeedback = fb => {
 
 const expandChoice = c => {
   return {
+    correct: c.correct,
+    value: c.value,
     label: [{ lang: 'en-US', value: c.label }],
     feedback: expandFeedback(c.feedback)
   }

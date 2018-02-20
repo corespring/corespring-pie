@@ -9,7 +9,7 @@
   "author": "Mukesh Sharma",
   "license": "ISC",
   "dependencies": {
-    "@pie-libs/config-ui": "^1.5.0",
+    "@pie-libs/config-ui": "^2.0.0",
     "@pie-libs/pie-configure-events": "^1.1.0",
     "@pie-libs/scoring-config": "~0.3.14",
     "lodash": "^4.17.4",
