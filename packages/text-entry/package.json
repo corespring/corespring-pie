@@ -1,0 +1,16 @@
+{
+  "name": "@corespring-pie/text-entry",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@pie-elements/text-entry-element": "^1.0.0"
+  },
+  "pie": {
+    "element": "@pie-elements/text-entry-element"
+  },
+  "author": "",
+  "license": "ISC"
+}
