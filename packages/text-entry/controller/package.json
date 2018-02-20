@@ -9,6 +9,6 @@
   "license": "ISC",
   "main": "src/index.js",
   "dependencies": {
-    "@pie-elements/text-entry-controller": "^1.0.0"
+    "@pie-elements/text-entry-controller": "^0.2.8"
   }
 }

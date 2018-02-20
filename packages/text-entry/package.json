@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@pie-elements/text-entry-element": "^1.0.0"
+    "@pie-elements/text-entry-element": "^0.2.8"
   },
   "pie": {
     "element": "@pie-elements/text-entry-element"
