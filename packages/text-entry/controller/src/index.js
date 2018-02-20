@@ -26,7 +26,7 @@ const expandValues = (values, fb) => {
 }
 
 const expandResponses = r => ({
-  value: expandValues(r.values, r.feedback),
+  values: expandValues(r.values, r.feedback),
   ignoreWhitespace: r.ignoreWhitespace,
   ignoreCase: r.ignoreCase
 })

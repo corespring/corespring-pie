@@ -8,6 +8,7 @@ import Responses from './responses';
 import PropTypes from 'prop-types';
 import range from 'lodash/range';
 import ModelConfig from './model-config';
+import { modelToFeedbackConfig, feedbackConfigToModel } from './feedback-mapper';
 
 const log = debug('@corespring-pie:text-entry:configure');
 
@@ -49,21 +50,16 @@ class Configure extends React.Component {
   }
 
   onFeedbackChange = (feedbackConfig) => {
-    const model = feedbackConfigToTextEntry(feedbackConfig, this.props.model);
+    const model = feedbackConfigToModel(feedbackConfig, this.props.model);
     this.props.onModelChanged(this.props.model);
   }
 
   render() {
     const { classes, model } = this.props;
 
-    const feedbackConfig = {} //textEntryToFeedbackConfig(model);
+    const feedbackConfig = modelToFeedbackConfig(model);
 
-    // log('[render]: feedbackConfig', feedbackConfig);
     log('[render] model', model);
-    //This configure ui only supports 'en-US' for now.
-    // const onlyEnUs = (v => v.lang === 'en-US');
-    // model.correctResponses.values = model.correctResponses.values.filter(onlyEnUs);
-    // model.partialResponses.values = model.partialResponses.values.filter(onlyEnUs);
 
     return (
       <div>
