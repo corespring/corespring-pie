@@ -20,6 +20,7 @@ module.exports = {
         values: ['mutty'],
         ignoreWhitespace: true,
         ignoreCase: true,
+        awardPercentage: '50',
         feedback: {
           type: 'custom',
           value: 'foo'
