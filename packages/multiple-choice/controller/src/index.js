@@ -38,7 +38,7 @@ export function model(question, session, env) {
       keyMode: question.keyMode,
       choices,
       complete: {
-        min: n.choices.filter(c => c.correct).length
+        min: question.choices.filter(c => c.correct).length
       },
       responseCorrect: isResponseCorrect(question, session)
     };
