@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import range from 'lodash/range';
 import ModelConfig from './model-config';
 import { modelToFeedbackConfig, feedbackConfigToModel } from './feedback-mapper';
+import NumberInput from './number-input';
 
 const log = debug('@corespring-pie:text-entry:configure');
 
@@ -54,6 +55,11 @@ class Configure extends React.Component {
     this.props.onModelChanged(this.props.model);
   }
 
+  onAwardPercentageChange = (percent) => {
+    this.props.model.partialResponses.awardPercentage = percent;
+    this.props.onModelChanged(this.props.model);
+  }
+
   render() {
     const { classes, model } = this.props;
 
@@ -80,7 +86,11 @@ class Configure extends React.Component {
           feedback={feedbackConfig.partialFeedback}
           onChange={this.onPartialResponsesChanged}>
           <div>
-            <TextField className={classes.award} placeholder="0" label="Award % for partially correct answer" />
+            <NumberInput
+              className={classes.award}
+              value={model.partialResponses.awardPercentage}
+              onChange={this.onAwardPercentageChange}
+              placeholder="Award % for partially correct answer" />
           </div>
         </Responses>
         <ModelConfig config={model.model} onChange={this.onModelConfigChange} />

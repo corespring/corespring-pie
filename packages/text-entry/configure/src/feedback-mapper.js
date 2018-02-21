@@ -5,7 +5,7 @@ export const modelToFeedbackConfig = model => {
 
   const correctFeedback = model.correctResponses.feedback || {};
   const incorrectFeedback = model.incorrectFeedback || {};
-  const partialFeedback = model.partialFeedback || {};
+  const partialFeedback = model.partialResponses.feedback || {};
 
   return {
     correctFeedback: correctFeedback.value,
@@ -19,11 +19,14 @@ export const modelToFeedbackConfig = model => {
 
 export const feedbackConfigToModel = (config, model) => {
 
+  model.correctResponses = model.correctResponses || {};
+
   model.correctResponses.feedback = {
     type: config.correctFeedbackType,
     value: config.correctFeedback
   }
 
+  model.partialResponses = model.partialResponses || {};
   model.partialResponses.feedback = {
     type: config.partialFeedbackType,
     value: config.partialFeedback
