@@ -1,44 +1,84 @@
-import { model as modelMock } from '@pie-elements/inline-choice-controller';
-
 import { model } from '../index';
-
 
 describe('model', () => {
 
 
-  test('calls root model', async () => {
+  let result;
 
-    const question = {
-      choices: [
-        { value: 'a', label: 'a', correct: true },
-        { value: 'b', label: 'b', correct: false }
-      ]
-    }
-
-    const session = {
-      selectedChoice: 'a'
-    }
-
-    const env = {}
-    await model(question, session, env);
-    expect(modelMock.mock.calls.length).toBe(1);
-    expect(modelMock.mock.calls[0][0]).toMatchObject({
-      choices: [
-        {
-          value: 'a',
-          label: [
-            { lang: 'en-US', value: 'a' }
-          ],
-          correct: true
-        },
-        {
-          value: 'b',
-          label: [
-            { lang: 'en-US', value: 'b' }
-          ],
-          correct: false
+  let question = {
+    choices: [
+      {
+        value: 'a',
+        label: 'a',
+        correct: true,
+        feedback: {
+          type: 'custom',
+          value: 'hooray'
         }
-      ]
+      },
+      {
+        value: 'b',
+        label: 'b',
+        correct: false,
+        feedback: {
+          type: 'default'
+        }
+      }
+    ]
+  }
+
+  let session = {
+    selectedChoice: 'a'
+  }
+
+  let env;
+  beforeEach(async () => {
+    env = { mode: 'gather' }
+    result = await model(question, session, env);
+  });
+
+  it('returns choices', () => {
+    expect(result.choices).toMatchObject(question.choices.map(c => ({ label: c.label, value: c.value })));
+  });
+
+  it('returns disabled:false', () => {
+    expect(result.disabled).toEqual(false);
+  });
+
+  describe('mode == evaluate', () => {
+
+    beforeEach(async () => {
+      env = { mode: 'evaluate' };
+      result = await model(question, session, env);
     });
+
+    it('returns disabled: true', () => {
+      expect(result.disabled).toEqual(true);
+    });
+
+    it('returns result', () => {
+      expect(result.result).toMatchObject({
+        correct: true,
+        feedback: 'hooray'
+      })
+    });
+  });
+
+  describe('mode === evaluate wrong answer', () => {
+
+    beforeEach(async () => {
+      env = { mode: 'evaluate' }
+      session = {
+        selectedChoice: 'b'
+      }
+      result = await model(question, session, env);
+    });
+
+    it('returns result', () => {
+      expect(result.result).toMatchObject({
+        correct: false,
+        feedback: 'Incorrect'
+      });
+    })
   });
 })

@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "./node_modules/.bin/jest"
   },
   "author": "Mukesh Sharma",
   "license": "ISC",
@@ -28,6 +28,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "chai": "^3.5.0",
     "enzyme": "^2.7.0",
-    "jest": "^22.1.4"
+    "jest": "^22.1.4",
+    "react-test-renderer": "^15.6.1"
   }
 }

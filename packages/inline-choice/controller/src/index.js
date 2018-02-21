@@ -1,3 +1,9 @@
+import debug from 'debug';
+
+const log = debug('corespring-pie:inline-choice:controller');
+
+/** build a ui model to work with @pie-elements/inline-choice */
+
 export function model(question, session, env) {
   return new Promise((resolve, reject) => {
 
@@ -7,6 +13,8 @@ export function model(question, session, env) {
       }
 
       const c = question.choices.find(c => c.value === session.selectedChoice);
+
+      log('[getResult] c: ', c);
       const correct = c && !!c.correct;
 
       const feedback = (() => {
@@ -26,9 +34,10 @@ export function model(question, session, env) {
       return { correct, feedback }
     }
 
+    const choices = question.choices.map(c => ({ label: c.label, value: c.value }));
+
     resolve({
-      choices: question.choices
-        .map(c => Object.assign({}, c, { correct: undefined })),
+      choices,
       disabled: env.mode !== 'gather',
       result: env.mode === 'evaluate' ? getResult() : undefined
     });
