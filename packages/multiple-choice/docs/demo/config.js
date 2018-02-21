@@ -13,7 +13,7 @@ module.exports = {
         {
           correct: true,
           value: 'sweden',
-          label: 'Sweden'
+          label: 'Sweden',
           feedback: {
             type: 'custom',
             value: 'Sweden joined in 1995'
@@ -21,7 +21,7 @@ module.exports = {
         },
         {
           value: 'iceland',
-          label: 'Iceland'
+          label: 'Iceland',
           feedback: {
             type: 'custom',
             value: 'Iceland is not an EU member state'
@@ -29,7 +29,7 @@ module.exports = {
         },
         {
           value: 'norway',
-          label: 'Norway'
+          label: 'Norway',
           feedback: {
             type: 'custom',
             custom: 'Norway is not an EU member, but they are a member for the Single Market'
@@ -38,7 +38,7 @@ module.exports = {
         {
           correct: true,
           value: 'finland',
-          label: 'Finland'
+          label: 'Finland',
           feedback: {
             type: 'custom',
             value: 'Finland joined the EU in 1995'
