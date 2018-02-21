@@ -1,7 +1,7 @@
 {
   "name": "@corespring-pie/text-entry",
   "repository": "corespring/corespring-pie",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "scripts": {
     "configure-test": "cd configure && npm run test",

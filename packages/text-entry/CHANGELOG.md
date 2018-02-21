@@ -16,28 +16,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **configure:** add number input ([af36da1](https://github.com/corespring/corespring-pie/commit/af36da1))
 * **configure:** add percent award input and hook it up to model ([b74aee9](https://github.com/corespring/corespring-pie/commit/b74aee9))
-* **controller:** build ui model directly for [@pie-elements](https://github.com/pie-elements)/inline-choice ([45c8c88](https://github.com/corespring/corespring-pie/commit/45c8c88))
 * **controller:** remove depedency on [@pie-elements](https://github.com/pie-elements)/text-entry-controller ([38604b1](https://github.com/corespring/corespring-pie/commit/38604b1))
 * **new:** new text entry package ([57c5c02](https://github.com/corespring/corespring-pie/commit/57c5c02))
-
-
-
-
-<a name="1.0.2"></a>
-## [1.0.2](https://github.com/corespring/corespring-pie/compare/v1.0.1...v1.0.2) (2018-02-20)
-
-
-### Bug Fixes
-
-* **inline-choice:** fix package.json ([6efaa01](https://github.com/corespring/corespring-pie/commit/6efaa01))
-
-
-
-
-<a name="1.0.1"></a>
-## 1.0.1 (2018-02-20)
-
-
-
-
-**Note:** Version bump only for package undefined
