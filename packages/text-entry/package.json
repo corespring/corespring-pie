@@ -1,5 +1,6 @@
 {
   "name": "@corespring-pie/text-entry",
+  "repository": "corespring/corespring-pie",
   "version": "1.0.0",
   "description": "",
   "scripts": {
