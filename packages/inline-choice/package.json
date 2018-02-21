@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "configure-test": "cd configure && jest --verbose",
-    "test": "npm run configure-test"
+    "controller-test": "cd controller && npm run test",
+    "test": "npm run configure-test && npm run controller-test"
   },
   "publishConfig": {
     "access": "public"
