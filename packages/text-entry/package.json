@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "configure-test": "cd configure && npm run test",
+    "controller-test": "cd controller && npm run test",
+    "test": "npm run configure-test && npm run controller-test",
+    "postinstall": "cd configure && npm install && cd ../controller && npm install"
   },
   "dependencies": {
     "@pie-elements/text-entry-element": "^0.2.8"
