@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/corespring/corespring-pie/compare/v1.1.0...v1.1.1) (2018-02-21)
+
+
+### Bug Fixes
+
+* **npm:** publishConfig.access = public ([e6fa1da](https://github.com/corespring/corespring-pie/commit/e6fa1da))
+
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/corespring/corespring-pie/compare/v1.0.2...v1.1.0) (2018-02-21)
 
