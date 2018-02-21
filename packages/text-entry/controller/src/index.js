@@ -25,11 +25,11 @@ const expandValues = (values, fb) => {
   })
 }
 
-const expandResponses = r => ({
+const expandResponses = (r = { values: [], feedback: {} }) => ({
   values: expandValues(r.values, r.feedback),
   ignoreWhitespace: r.ignoreWhitespace,
   ignoreCase: r.ignoreCase
-})
+});
 
 /**
  * @param {*} ifb 
