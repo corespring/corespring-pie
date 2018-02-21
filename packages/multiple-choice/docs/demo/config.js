@@ -32,7 +32,7 @@ module.exports = {
           label: 'Norway',
           feedback: {
             type: 'custom',
-            custom: 'Norway is not an EU member, but they are a member for the Single Market'
+            value: 'Norway is not an EU member, but they are a member for the Single Market'
           }
         },
         {

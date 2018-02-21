@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import EditableHtml from '@pie-libs/editable-html';
-import { InputContainer } from '@pie-libs/config-ui';
+import { InputContainer, ChoiceConfiguration } from '@pie-libs/config-ui';
 import { withStyles } from 'material-ui/styles';
 import Tabs, { Tab } from 'material-ui/Tabs';
-import { ChoiceType, KeyType } from './choice-type';
+import { ChoiceType, KeyType } from './choice-type'
+
 
 const styles = theme => ({
   prompt: {
@@ -15,6 +16,19 @@ const styles = theme => ({
   }
 });
 
+// const choiceProps = {
+//   choice,
+//   index,
+//   choiceMode: model.choiceMode,
+//   keyMode: model.keyMode,
+//   activeLang: this.state.activeLang,
+//   defaultLang: model.defaultLang,
+//   onChoiceChanged: onChoiceChanged.bind(null, index),
+//   onRemoveChoice: onRemoveChoice.bind(null, index),
+//   onInsertImage,
+//   onDeleteImage
+// }
+// return <ChoiceConfig key={index} {...choiceProps} />;
 const Design = withStyles(styles)((props) => {
 
   const { classes, model, onPromptChanged } = props;
@@ -27,6 +41,10 @@ const Design = withStyles(styles)((props) => {
           markup={model.prompt}
           onChange={onPromptChanged} />
       </InputContainer>
+      {model.choices.map((choice, index) => <ChoiceConfiguration
+        key={index}
+        data={choice}
+        defaultFeedback={{}} />)}
     </div>
   );
 
