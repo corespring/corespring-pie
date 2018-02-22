@@ -44,6 +44,9 @@ module.exports = {
             value: 'Finland joined the EU in 1995'
           }
         }
+      ],
+      partialScoring: [
+        { numberOfCorrect: 1, scorePercentage: 20 }
       ]
     }
   ]

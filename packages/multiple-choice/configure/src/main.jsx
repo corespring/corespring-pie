@@ -7,13 +7,24 @@ import Tabs, { Tab } from 'material-ui/Tabs';
 import { ChoiceType, KeyType } from './choice-type'
 import Button from 'material-ui/Button';
 
+import PartialScoringConfig from '@pie-libs/scoring-config';
 
 const styles = theme => ({
+  promptHolder: {
+    width: '100%',
+    paddingBottom: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 2
+  },
   prompt: {
-    paddingTop: theme.spacing.unit * 2
+    paddingTop: theme.spacing.unit * 2,
+    width: '100%'
   },
   design: {
     paddingTop: theme.spacing.unit * 3
+  },
+  choiceConfiguration: {
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2
   }
 });
 
@@ -31,13 +42,15 @@ const Design = withStyles(styles)((props) => {
   return (
     <div className={classes.design}>
       <Basics {...props} />
-      <InputContainer label="Prompt" >
+      <InputContainer label="Prompt" className={classes.promptHolder} >
         <EditableHtml
           className={classes.prompt}
           markup={model.prompt}
           onChange={onPromptChanged} />
       </InputContainer>
       {model.choices.map((choice, index) => <ChoiceConfiguration
+        index={index + 1}
+        className={classes.choiceConfiguration}
         mode={model.choiceMode}
         key={index}
         data={choice}
@@ -75,13 +88,17 @@ export class Main extends React.Component {
     }
   }
 
-  onTabsChange(event, index) {
+  onTabsChange = (event, index) => {
     this.setState({ index });
   }
 
   render() {
 
-    const { model, onPromptChanged, classes } = this.props;
+    const {
+      model,
+      onPromptChanged,
+      onPartialScoringChanged,
+      classes } = this.props;
     const { index } = this.state;
 
     return (
