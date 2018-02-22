@@ -2,7 +2,7 @@
   "name": "@corespring-pie/multiple-choice",
   "version": "1.0.0",
   "dependencies": {
-    "@pie-elements/multiple-choice-element": "^1.0.0"
+    "@pie-elements/multiple-choice-element": "^1.0.4"
   },
   "pie": {
     "element": "@pie-elements/multiple-choice-element"
