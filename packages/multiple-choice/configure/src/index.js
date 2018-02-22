@@ -46,8 +46,10 @@ export default class extends HTMLElement {
     let element = React.createElement(Root, {
       model: this._model,
       onModelChanged: this.onModelChanged,
-      onInsertImage: this.insertImage.bind(this),
-      onDeleteImage: this.onDeleteImage.bind(this)
+      imageSupport: {
+        add: this.insertImage.bind(this),
+        delete: this.onDeleteImage.bind(this)
+      }
     });
     ReactDOM.render(element, this);
   }

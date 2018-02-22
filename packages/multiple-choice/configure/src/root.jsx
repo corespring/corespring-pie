@@ -10,18 +10,9 @@ export default class Root extends React.Component {
     this.state = {
       model: props.model
     };
-
-    this.onRemoveChoice = this.onRemoveChoice.bind(this);
-    this.onAddChoice = this.onAddChoice.bind(this);
-    this.onChoiceModeChanged = this.onChoiceModeChanged.bind(this);
-    this.onKeyModeChanged = this.onKeyModeChanged.bind(this);
-    this.onChoiceChanged = this.onChoiceChanged.bind(this);
-    this.onPromptChanged = this.onPromptChanged.bind(this);
-    this.onDefaultLangChanged = this.onDefaultLangChanged.bind(this);
-    this.onPartialScoringChanged = this.onPartialScoringChanged.bind(this);
   }
 
-  onChoiceModeChanged(value) {
+  onChoiceModeChanged = (value) => {
     const { model } = this.state;
     model.choiceMode = value;
     if (value === 'radio') {
@@ -43,32 +34,32 @@ export default class Root extends React.Component {
     this.updateModel(model);
   }
 
-  onRemoveChoice(index) {
+  onRemoveChoice = (index) => {
     const { model } = this.state;
     model.choices.splice(index, 1);
     this.updateModel(model);
   }
 
-  onPartialScoringChanged(partialScoring) {
+  onPartialScoringChanged = (partialScoring) => {
     const { model } = this.state;
     model.partialScoring = partialScoring;
     this.updateModel(model);
   }
 
-  modelChanged() {
+  modelChanged = () => {
     this.props.onModelChanged(this.state.model);
   }
 
-  updateModel(model) {
+  updateModel = (model) => {
     this.setState({ model }, () => {
       this.modelChanged();
     });
   }
 
-  onAddChoice(activeLang) {
+  onAddChoice = () => {
     const { model } = this.state;
     model.choices.push({
-      label: [{ lang: activeLang, value: 'label' }],
+      label: 'label',
       value: 'value',
       feedback: {
         type: 'none'
@@ -77,13 +68,13 @@ export default class Root extends React.Component {
     this.updateModel(model);
   }
 
-  onKeyModeChanged(value) {
+  onKeyModeChanged = (value) => {
     const { model } = this.state;
     model.keyMode = value;
     this.updateModel(model);
   }
 
-  onChoiceChanged(index, choice) {
+  onChoiceChanged = (index, choice) => {
 
     const { model } = this.state;
     if (choice.correct && model.choiceMode === 'radio') {
@@ -96,11 +87,7 @@ export default class Root extends React.Component {
     this.updateModel(model);
   }
 
-  onDefaultLangChanged(l) {
-    this.setState({ [model.defaultLang]: l }, () => this.modelChanged());
-  }
-
-  onPromptChanged(prompt) {
+  onPromptChanged = (prompt) => {
     const update = cloneDeep(this.state.model);
     update.prompt = prompt;
     this.updateModel(update);
@@ -117,8 +104,7 @@ export default class Root extends React.Component {
       onPromptChanged: this.onPromptChanged,
       onDefaultLangChanged: this.onDefaultLangChanged,
       onPartialScoringChanged: this.onPartialScoringChanged,
-      onInsertImage: this.props.onInsertImage,
-      onDeleteImage: this.props.onDeleteImage
+      imageSupport: this.props.imageSupport
     }
 
     return <Main {...props} />;

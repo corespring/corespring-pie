@@ -87,8 +87,10 @@ export class Main extends React.Component {
           defaultLang: model.defaultLang,
           onChoiceChanged: onChoiceChanged.bind(null, index),
           onRemoveChoice: onRemoveChoice.bind(null, index),
-          onInsertImage,
-          onDeleteImage
+          imageSupport: {
+            add: onInsertImage,
+            delete: onDeleteImage
+          }
         }
         return <ChoiceConfig key={index} {...choiceProps} />;
       })

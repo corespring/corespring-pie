@@ -5,6 +5,7 @@ import { InputContainer, ChoiceConfiguration } from '@pie-libs/config-ui';
 import { withStyles } from 'material-ui/styles';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import { ChoiceType, KeyType } from './choice-type'
+import Button from 'material-ui/Button';
 
 
 const styles = theme => ({
@@ -16,22 +17,17 @@ const styles = theme => ({
   }
 });
 
-// const choiceProps = {
-//   choice,
-//   index,
-//   choiceMode: model.choiceMode,
-//   keyMode: model.keyMode,
-//   activeLang: this.state.activeLang,
-//   defaultLang: model.defaultLang,
-//   onChoiceChanged: onChoiceChanged.bind(null, index),
-//   onRemoveChoice: onRemoveChoice.bind(null, index),
-//   onInsertImage,
-//   onDeleteImage
-// }
-// return <ChoiceConfig key={index} {...choiceProps} />;
 const Design = withStyles(styles)((props) => {
+  const {
+    classes,
+    model,
+    onPromptChanged,
+    onChoiceChanged,
+    onRemoveChoice,
+    onAddChoice,
+    imageSupport
+  } = props;
 
-  const { classes, model, onPromptChanged } = props;
   return (
     <div className={classes.design}>
       <Basics {...props} />
@@ -42,9 +38,18 @@ const Design = withStyles(styles)((props) => {
           onChange={onPromptChanged} />
       </InputContainer>
       {model.choices.map((choice, index) => <ChoiceConfiguration
+        mode={model.choiceMode}
         key={index}
         data={choice}
-        defaultFeedback={{}} />)}
+        defaultFeedback={{}}
+        imageSupport={imageSupport}
+        onDelete={() => onRemoveChoice(index)}
+        onChange={c => onChoiceChanged(index, c)} />)}
+      <br />
+      <Button
+        raised
+        color="primary"
+        onClick={() => onAddChoice()} >Add a choice</Button>
     </div>
   );
 
@@ -96,7 +101,12 @@ export class Main extends React.Component {
   }
 }
 
-Main.propTypes = {}
+Main.propTypes = {
+  imageSupport: PropTypes.shape({
+    add: PropTypes.func.isRequired,
+    delete: PropTypes.func.isRequired
+  })
+}
 
 
 export default withStyles(styles)(Main);
