@@ -9,7 +9,7 @@ const prepareChoice = (mode, defaultFeedback) => (choice) => {
   }
 
   if (mode == 'evaluate') {
-    out.correct = choice.correct;
+    out.correct = !!choice.correct;
 
     const feedbackType = (choice.feedback && choice.feedback.type) || 'none';
 
@@ -37,10 +37,12 @@ export function model(question, session, env) {
       choiceMode: question.choiceMode,
       keyMode: question.keyMode,
       choices,
+
+      //TODO: ok to return this in gather mode? gives a clue to how many answers are needed?
       complete: {
         min: question.choices.filter(c => c.correct).length
       },
-      responseCorrect: isResponseCorrect(question, session)
+      responseCorrect: env.mode === 'evaluate' ? isResponseCorrect(question, session) : undefined
     };
 
     resolve(out);
