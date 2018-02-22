@@ -10,7 +10,7 @@ import {
   NumberLineComponent,
   dataConverter,
   tickUtils
-} from '@pie-elements/number-line';
+} from '@pie-elements/number-line-element';
 import { blue500, green500, green700, grey400, grey500, red500 } from 'material-ui/styles/colors';
 
 import Button from 'material-ui/Button';
@@ -242,7 +242,7 @@ class Main extends React.Component {
             </div>
           </div>
           <Button
-            raised
+            variant="raised"
             color="primary"
             onClick={this.setDefaults} >Reset to default values</Button>
         </CardContent>

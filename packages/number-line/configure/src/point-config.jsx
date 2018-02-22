@@ -1,6 +1,6 @@
 import Button from 'material-ui/Button';
 import React from 'react';
-import { pointChooser } from '@pie-elements/number-line';
+import { pointChooser } from '@pie-elements/number-line-element';
 import { withStyles } from 'material-ui/styles';
 
 const { Point } = pointChooser;
@@ -62,8 +62,8 @@ class PointConfig extends React.Component {
       <div>
         <div>{icons}</div>
         <div className={classes.displayToggles}>
-          <Button raised onClick={this.toggleAll.bind(this, true)}>Display All</Button>
-          <Button raised onClick={this.toggleAll.bind(this, false)}>None</Button>
+          <Button variant="raised" onClick={this.toggleAll.bind(this, true)}>Display All</Button>
+          <Button variant="raised" onClick={this.toggleAll.bind(this, false)}>None</Button>
         </div>
       </div>
     )
