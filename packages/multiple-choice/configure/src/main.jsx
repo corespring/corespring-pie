@@ -6,8 +6,10 @@ import { withStyles } from 'material-ui/styles';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import { ChoiceType, KeyType } from './choice-type'
 import Button from 'material-ui/Button';
-
+import debug from 'debug';
 import PartialScoringConfig from '@pie-libs/scoring-config';
+
+const log = debug('@corespring-pie:multiple-choice:main');
 
 const styles = theme => ({
   promptHolder: {
@@ -60,7 +62,7 @@ const Design = withStyles(styles)((props) => {
         onChange={c => onChoiceChanged(index, c)} />)}
       <br />
       <Button
-        raised
+        variant="raised"
         color="primary"
         onClick={() => onAddChoice()} >Add a choice</Button>
     </div>
@@ -70,11 +72,14 @@ const Design = withStyles(styles)((props) => {
 
 
 const Basics = (props) => {
+
+  log('[Basics] props', props);
+
   const { classes, model, onChoiceModeChanged, onKeyModeChanged } = props;
   return (
     <div className={classes.baseTypes}>
       <ChoiceType value={model.choiceMode} onChange={onChoiceModeChanged} />
-      <KeyType value={model.keyMode} onChange={onKeyModeChanged} />
+      <KeyType value={model.keyMode} onChange={onKeyModeChanged} /> 
     </div>
   );
 }

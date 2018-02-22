@@ -6,14 +6,6 @@ import React from 'react';
 import { TwoChoice } from '@pie-libs/config-ui';
 import { withStyles } from 'material-ui/styles';
 
-const styles = {
-  root: {
-    paddingRight: '20px'
-  }
-};
-
-const StyledTwoChoice = withStyles(styles, { name: 'TwoChoice' })(TwoChoice);
-
 export const ChoiceType = (props) => {
   let choiceProps = {
     header: 'Response Type',
@@ -29,7 +21,7 @@ export const ChoiceType = (props) => {
       value: 'checkbox'
     }
   }
-  return <StyledTwoChoice {...choiceProps} />;
+  return <TwoChoice {...choiceProps} />;
 }
 
 export const KeyType = (props) => {
@@ -47,5 +39,5 @@ export const KeyType = (props) => {
       value: 'letters'
     }
   }
-  return <StyledTwoChoice {...choiceProps} />;
+  return <TwoChoice {...choiceProps} />;
 }
