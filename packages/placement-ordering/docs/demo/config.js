@@ -25,7 +25,7 @@ module.exports = {
         }
       ],
       model: {
-        prompt: 'Arrange the fruits alphabetically'
+        prompt: 'Arrange the fruits alphabetically',
         choices: [
           {
             id: 'c2',
@@ -40,12 +40,12 @@ module.exports = {
           },
           {
             id: 'c1',
-            label: 'Blueberry'
+            label: 'Blueberry',
             moveOnDrag: false
           },
           {
             id: 'c4',
-            label: 'Pear'
+            label: 'Pear',
             moveOnDrag: false
           }
         ]
@@ -57,6 +57,14 @@ module.exports = {
         choiceAreaLabel: 'choices: ',
         answerAreaLabel: 'Answer Area Label',
         showOrdering: true
+      },
+      feedback: {
+        correctFeedbackType: 'custom',
+        correctFeedback: 'foo',
+        incorrectFeedbackType: 'custom',
+        incorrectFeedback: 'foo',
+        partialFeedbackType: 'custom',
+        partialFeedback: 'foo',
       }
     }
   ]

@@ -3,7 +3,7 @@ import { flattenCorrect, score } from './scoring';
 import _ from 'lodash';
 import debug from 'debug';
 
-const log = debug('pie-elements:placement-ordering:controller');
+const log = debug('@corespring-pie:placement-ordering-controller');
 
 export function outcome(question, session, env) {
   session.value = session.value || [];
@@ -20,13 +20,23 @@ export function outcome(question, session, env) {
   });
 }
 
+
+const getFeedback = (correctness, fb) => {
+
+  const type = fb[`${correctness}FeedbackType`] || 'none';
+  if (type === 'default') {
+    return defaultFeedback[correctness];
+  } else if (type === 'custom') {
+    return fb[`${correctness}Feedback`];
+  }
+}
+
 export function model(question, session, env) {
 
 
   const config = _.assign({
     choiceAreaLayout: 'vertical',
     placementType: undefined,
-    tileSize: 20,
     answerAreaLabel: undefined,
     choiceAreaLabel: undefined,
     showOrdering: true
@@ -82,10 +92,11 @@ export function model(question, session, env) {
   const choices = question.config && question.config.shuffle ? shuffle(session, base.choices) : base.choices;
   base.choices = choices;
 
+  log('[model] removing tileSize for the moment.');
+
   base.config = {
     orientation: config.choiceAreaLayout,
     includeTargets: config.placementType === 'placement',
-    tileSize: config.tileSize,
     targetLabel: config.answerAreaLabel,
     choiceLabel: config.choiceAreaLabel,
     showOrdering: config.showOrdering
@@ -101,6 +112,16 @@ export function model(question, session, env) {
       }
     });
     var allCorrect = _.isEqual(flattenCorrect(question), session.value);
+
+    base.correctness = allCorrect ? 'correct' : 'incorrect';
+
+    const defaultFeedback = _.assign({
+      correct: 'Correct',
+      incorrect: 'Incorrect'
+    }, question.defaultFeedback);
+
+    base.feedback = getFeedback(base.correctness, question.feedback || {}, defaultFeedback);
+
     if (!allCorrect) {
       base.correctResponse = flattenCorrect(question);
     }

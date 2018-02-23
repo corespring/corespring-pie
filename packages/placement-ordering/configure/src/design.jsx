@@ -6,9 +6,10 @@ import {
   InputContainer,
   InputSwitch,
   LanguageControls,
-  MultiLangInput,
   TwoChoice
 } from '@pie-libs/config-ui';
+import EditableHtml from '@pie-libs/editable-html';
+
 import { FormControlLabel, FormGroup } from 'material-ui/Form';
 import { get, set } from 'nested-property';
 
@@ -31,7 +32,7 @@ class Design extends React.Component {
     super(props);
 
     this.state = {
-      activeLang: props.model.defaultLang
+      allMoveOnDrag: false
     }
 
     this.applyUpdate = (modelFn) => {
@@ -92,7 +93,7 @@ class Design extends React.Component {
   render() {
 
     const { model, onFeedbackChange, classes, imageSupport } = this.props;
-    const { activeLang, allMoveOnDrag } = this.state;
+    const { allMoveOnDrag } = this.state;
     return (
       <div className={classes.design}>
 
@@ -123,19 +124,12 @@ class Design extends React.Component {
             onChange={this.onShowOrderingChange}
             aria-label="shuffle" />
         </div>
-        <LanguageControls
-          langs={model.langs}
-          activeLang={activeLang}
-          defaultLang={model.defaultLang}
-          onActiveLangChange={activeLang => this.setState({ activeLang })}
-          onDefaultLangChange={this.onDefaultLangChange}
-          className={classes.langControls} />
-        <MultiLangInput
+        <EditableHtml
           label="Prompt"
-          value={model.model.prompt}
-          lang={activeLang}
+          markup={model.model.prompt}
           onChange={this.onPromptChange}
-          imageSupport={imageSupport} />
+          imageSupport={imageSupport}
+          className={classes.prompt} />
 
         <div className={classes.row}>
           <TextField
@@ -154,7 +148,6 @@ class Design extends React.Component {
         </div>
         <FormSection label="Choices">
           <ChoiceEditor
-            activeLang={activeLang}
             correctResponse={model.correctResponse}
             choices={model.model.choices}
             onChange={this.onChoiceEditorChange}
@@ -174,7 +167,7 @@ Design.propTypes = {
   onModelChange: PropTypes.func.isRequired
 }
 
-export default withStyles({
+export default withStyles(theme => ({
   row: {
     display: 'grid',
     gridAutoFlow: 'column',
@@ -195,5 +188,8 @@ export default withStyles({
   orientation: {
     marginTop: '0px',
     marginBottom: '0px'
+  },
+  prompt: {
+    paddingBottom: theme.spacing.unit
   }
-})(Design);
+}))(Design);

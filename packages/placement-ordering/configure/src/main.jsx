@@ -5,7 +5,7 @@ import Help from './help';
 import React from 'react';
 import ScoringConfig from '@pie-libs/scoring-config';
 import omit from 'lodash/omit';
-import { withContext } from '@pie-elements/placement-ordering';
+import { withContext } from '@pie-elements/placement-ordering-element';
 import { withStyles } from 'material-ui/styles';
 
 const styles = {
@@ -40,7 +40,8 @@ class Main extends React.Component {
 
     this.onModelChange = (model) => {
       const { onModelChange } = this.props;
-      const resetSession = model.config.placementType !== this.state.model.config.placementType;
+      const resetSession = model.config.placementType !== this.state.model.config.placementType ||
+        model.model.choices.length !== this.state.model.model.choices.length;
       this.setState({ model }, () => {
         onModelChange(this.state.model, resetSession);
       });
@@ -61,7 +62,12 @@ class Main extends React.Component {
           </Tabs>
           <Help />
         </div>
-        {index === 0 && <Design model={model} onModelChange={this.onModelChange} imageSupport={imageSupport} />}
+        {index === 0 && (
+          <Design
+            model={model}
+            onModelChange={this.onModelChange}
+            imageSupport={imageSupport} />
+        )}
         {index === 1 && <ScoringConfig
           partialScoring={model.partialScoring}
           numberOfCorrectResponses={model.correctResponse.length}

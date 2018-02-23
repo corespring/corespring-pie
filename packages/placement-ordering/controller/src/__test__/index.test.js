@@ -40,6 +40,12 @@ describe('index', () => {
     it('returns empty config for mode=view', assertModel(base(), {}, { mode: 'view' }, { disabled: true }));
     it('returns config.disabled=true for mode=evaluate', assertModel(base(), {}, { mode: 'evaluate' }, { disabled: true }));
 
+    it('returns feedback', assertModel(
+      base({ correctResponse: ['a', 'b'], feedback: { correctFeedback: 'foo', correctFeedbackType: 'custom' } }),
+      { value: ['a', 'b'] },
+      { mode: 'evaluate' },
+      { feedback: 'foo' }
+    ));
 
     describe('choices and outcomes', () => {
       let model, session, env;

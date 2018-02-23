@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import compact from 'lodash/compact';
 import debug from 'debug';
-import { swap } from '@pie-elements/placement-ordering';
+import { swap } from '@pie-elements/placement-ordering-element';
 import { withStyles } from 'material-ui/styles';
 
 function findFreeChoiceSlot(choices) {
@@ -20,7 +20,7 @@ function findFreeChoiceSlot(choices) {
   return slot;
 }
 
-const log = debug('pie-elements:placement-ordering:configure:choice-editor');
+const log = debug('@corespring-pie:placement-ordering:configure:choice-editor');
 
 class ChoiceEditor extends React.Component {
   constructor(props) {
@@ -51,10 +51,7 @@ class ChoiceEditor extends React.Component {
       const { choices, correctResponse, onChange, activeLang } = this.props;
       const freeId = findFreeChoiceSlot(choices);
       const id = `c${freeId}`;
-      const newChoice = {
-        id,
-        label: [{ lang: activeLang, value: '' }]
-      }
+      const newChoice = { id, label: '' };
 
       const newCorrectResponse = {
         id,
@@ -88,17 +85,18 @@ class ChoiceEditor extends React.Component {
     const allMoveOnDrag = choices.find(c => c.moveOnDrag === false) === undefined;
 
     return <div className={classes.choiceEditor}>
-      {sortedChoices.map((c, index) => {
-        return <ChoiceTile
-          choice={c}
-          activeLang={activeLang}
-          onMoveChoice={this.moveChoice}
-          onDelete={this.onDelete.bind(this, c)}
-          onChoiceChange={this.onChoiceChange}
-          index={index}
-          key={index}
-          imageSupport={imageSupport} />
-      })}
+      {sortedChoices.map((c, index) =>
+        (
+          <ChoiceTile
+            choice={c}
+            activeLang={activeLang}
+            onMoveChoice={this.moveChoice}
+            onDelete={this.onDelete.bind(this, c)}
+            onChoiceChange={this.onChoiceChange}
+            index={index}
+            key={index}
+            imageSupport={imageSupport} />
+        ))}
       <div className={classes.controls}>
         <InputSwitch
           className={classes.allToggle}
@@ -153,6 +151,6 @@ const styles = theme => ({
       opacity: 0.3
     }
   }
-})
+});
 
 export default withStyles(styles)(ChoiceEditor);

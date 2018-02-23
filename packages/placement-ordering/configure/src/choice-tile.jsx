@@ -1,4 +1,6 @@
-import { Checkbox, MultiLangInput } from '@pie-libs/config-ui';
+import { Checkbox } from '@pie-libs/config-ui';
+import EditableHtml from '@pie-libs/editable-html';
+
 import { DragSource, DropTarget } from 'react-dnd';
 
 import IconButton from 'material-ui/IconButton';
@@ -43,11 +45,10 @@ class ChoiceTile extends React.Component {
     const opacity = isDragging ? 0 : 1;
     const markup = (
       <div className={classes.choiceTile} style={{ opacity: opacity }}>
-        <MultiLangInput
+        <EditableHtml
           style={{ display: 'inline-block' }}
           placeholder="Enter a choice"
-          value={choice.label}
-          lang={activeLang}
+          markup={choice.label}
           imageSupport={imageSupport}
           onChange={this.onLabelChange} />
         <div className={classes.controls}>
@@ -56,9 +57,12 @@ class ChoiceTile extends React.Component {
             onChange={this.onMoveOnDragChange} />
           <IconButton
             color="primary"
-            onClick={onDelete}><RemoveCircle classes={{
-              root: classes.removeCircle
-            }} /></IconButton>
+            onClick={onDelete}>
+            <RemoveCircle
+              classes={{
+                root: classes.removeCircle
+              }} />
+          </IconButton>
         </div>
       </div>);
 
@@ -113,25 +117,7 @@ const StyledSource = DragSource(
 
 const choiceTarget = {
   hover(props, monitor, component) {
-
     log('[hover]');
-    //   const dragIndex = monitor.getItem().index;
-    //   const hoverIndex = props.index;
-    //   if (dragIndex === hoverIndex) {
-    //     return;
-    //   }
-    //   const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
-    //   const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-    //   const clientOffset = monitor.getClientOffset();
-    //   const hoverClientY = clientOffset.y - hoverBoundingRect.top;
-    //   if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-    //     return;
-    //   }
-    //   if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-    //     return;
-    //   }
-    //   props.moveChoice(dragIndex, hoverIndex);
-    //   monitor.getItem().index = hoverIndex;
   },
   drop(props, monitor) {
     const item = monitor.getItem();
