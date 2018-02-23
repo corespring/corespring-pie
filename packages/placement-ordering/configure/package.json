@@ -1,0 +1,15 @@
+{
+  "name": "@corespring-pie/placement-ordering-configure",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./src/index.js",
+  "dependencies": {
+    "@pie-libs/scoring-config": "^0.3.11",
+    "@pie-libs/config-ui": "^1.4.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "material-ui": "^1.0.0-beta.27",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "nested-property": "^0.0.7"
+  }
+}

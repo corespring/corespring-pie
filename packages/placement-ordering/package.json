@@ -1,0 +1,16 @@
+{
+  "name": "@corespring-pie/placement-ordering",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "@pie-elements/placement-ordering-element": "^1.0.0"
+  },
+  "pie": {
+    "element": "@pie-elements/placement-ordering-element"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
