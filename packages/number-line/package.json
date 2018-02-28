@@ -1,6 +1,7 @@
 {
   "name": "@corespring-pie/number-line",
   "version": "1.0.0",
+  "repository": "corespring/corespring-pie",
   "description": "",
   "main": "index.js",
   "scripts": {

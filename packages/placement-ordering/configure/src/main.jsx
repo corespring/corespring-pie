@@ -5,7 +5,7 @@ import Help from './help';
 import React from 'react';
 import ScoringConfig from '@pie-libs/scoring-config';
 import omit from 'lodash/omit';
-import { withContext } from '@pie-elements/placement-ordering-element';
+import { withContext } from '@pie-elements/placement-ordering';
 import { withStyles } from 'material-ui/styles';
 
 const styles = {

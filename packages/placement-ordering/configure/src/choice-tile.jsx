@@ -12,7 +12,7 @@ import { DragSource as dragSource } from 'react-dnd';
 import { findDOMNode } from 'react-dom';
 import { withStyles } from 'material-ui/styles';
 
-const log = debug('pie-elements:placement-ordering:configure:choice-tile');
+const log = debug('@corespring-pie:placement-ordering:configure:choice-tile');
 
 class ChoiceTile extends React.Component {
 

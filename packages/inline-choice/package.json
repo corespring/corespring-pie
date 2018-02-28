@@ -1,5 +1,6 @@
 {
   "name": "@corespring-pie/inline-choice",
+  "repository": "corespring/corespring-pie",
   "version": "1.1.0",
   "description": "An inline-choice component.",
   "main": "src/index.js",

@@ -10,7 +10,7 @@ import {
   NumberLineComponent,
   dataConverter,
   tickUtils
-} from '@pie-elements/number-line-element';
+} from '@pie-elements/number-line';
 import { blue500, green500, green700, grey400, grey500, red500 } from 'material-ui/styles/colors';
 
 import Button from 'material-ui/Button';

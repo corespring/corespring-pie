@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import compact from 'lodash/compact';
 import debug from 'debug';
-import { swap } from '@pie-elements/placement-ordering-element';
+import { swap } from '@pie-elements/placement-ordering';
 import { withStyles } from 'material-ui/styles';
 
 function findFreeChoiceSlot(choices) {

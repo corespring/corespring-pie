@@ -24,7 +24,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import debug from 'debug';
 import { withStyles } from 'material-ui/styles';
 
-const log = debug('pie-elements:placement-ordering:design');
+const log = debug('@corespring-pie:placement-ordering:design');
 
 class Design extends React.Component {
 

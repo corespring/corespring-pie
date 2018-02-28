@@ -6,7 +6,7 @@ import Box from './box';
 import debug from 'debug';
 import { Typography } from 'material-ui';
 
-const log = debug('pie-elements:text-entry:configure');
+const log = debug('@corespring-pie:text-entry:configure');
 
 const SubHeader = withStyles(theme => ({
   subHeader: {
