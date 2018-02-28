@@ -1,0 +1,8 @@
+{
+  "name": "@corespring-pie/calculator",
+  "version": "0.0.1",
+  "dependencies": {
+    "@pie-libs/calculator": "^0.0.1"
+  },
+  "main": "src/index.js"
+}
