@@ -13,10 +13,10 @@
     "postinstall": "cd configure && npm install && cd ../controller && npm install"
   },
   "dependencies": {
-    "@pie-elements/text-entry-element": "^0.2.8"
+    "@pie-elements/text-entry": "^0.2.8"
   },
   "pie": {
-    "element": "@pie-elements/text-entry-element"
+    "element": "@pie-elements/text-entry"
   },
   "author": "",
   "license": "ISC"
