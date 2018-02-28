@@ -1,5 +1,5 @@
 
-import { isResponseCorrect } from '@pie-elements/multiple-choice-controller';
+import { isResponseCorrect } from './utils';
 
 const prepareChoice = (mode, defaultFeedback) => (choice) => {
 
