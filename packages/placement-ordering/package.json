@@ -2,6 +2,7 @@
   "name": "@corespring-pie/placement-ordering",
   "version": "1.0.0",
   "description": "",
+  "repository": "corespring/corespring-pie",
   "dependencies": {
     "@pie-elements/placement-ordering": "^2.0.0"
   },
