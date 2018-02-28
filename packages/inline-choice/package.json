@@ -14,7 +14,7 @@
   "author": "ed.eustace@gmail.com",
   "license": "ISC",
   "dependencies": {
-    "@pie-elements/inline-choice": "^1.1.6"
+    "@pie-elements/inline-choice": "^2.0.0"
   },
   "pie": {
     "element": "@pie-elements/inline-choice"

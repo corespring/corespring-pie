@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "@pie-elements/placement-ordering": "^1.1.0"
+    "@pie-elements/placement-ordering": "^2.0.0"
   },
   "pie": {
     "element": "@pie-elements/placement-ordering"
