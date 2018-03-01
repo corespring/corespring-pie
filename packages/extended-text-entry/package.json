@@ -1,0 +1,17 @@
+{
+  "name": "extended-text-entry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@pie-elements/extended-text-entry": "^1.0.0"
+  },
+  "pie": {
+    "element": "@pie-elements/extended-text-entry"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
