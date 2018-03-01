@@ -3,6 +3,9 @@
   "version": "1.2.0",
   "description": "",
   "repository": "corespring/corespring-pie",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@pie-elements/placement-ordering": "^2.0.0"
   },

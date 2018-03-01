@@ -2,6 +2,9 @@
   "name": "@corespring-pie/extended-text-entry",
   "version": "1.2.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@pie-elements/extended-text-entry": "^0.0.1"
   },

@@ -3,6 +3,9 @@
   "version": "1.2.0",
   "repository": "corespring/corespring-pie",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
