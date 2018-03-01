@@ -1,6 +1,6 @@
 {
   "name": "@corespring-pie/extended-text-entry",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "publishConfig": {
     "access": "public"
