@@ -1,10 +1,9 @@
 {
-  "name": "extended-text-entry",
-  "version": "1.0.0",
+  "name": "@corespring-pie/extended-text-entry",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
   "dependencies": {
-    "@pie-elements/extended-text-entry": "^1.0.0"
+    "@pie-elements/extended-text-entry": "^0.0.1"
   },
   "pie": {
     "element": "@pie-elements/extended-text-entry"
