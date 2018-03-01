@@ -1,7 +1,10 @@
 {
   "name": "@corespring-pie/multiple-choice",
   "repository": "corespring/corespring-pie",
-  "version": "1.0.0",
+  "version": "1.2.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@pie-elements/multiple-choice": "^2.0.0"
   },

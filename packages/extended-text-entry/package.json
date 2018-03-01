@@ -1,16 +1,15 @@
 {
-  "name": "@corespring-pie/placement-ordering",
+  "name": "@corespring-pie/extended-text-entry",
   "version": "1.2.1",
   "description": "",
-  "repository": "corespring/corespring-pie",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@pie-elements/placement-ordering": "^2.0.0"
+    "@pie-elements/extended-text-entry": "^0.0.1"
   },
   "pie": {
-    "element": "@pie-elements/placement-ordering"
+    "element": "@pie-elements/extended-text-entry"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

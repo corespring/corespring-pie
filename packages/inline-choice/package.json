@@ -1,16 +1,16 @@
 {
   "name": "@corespring-pie/inline-choice",
   "repository": "corespring/corespring-pie",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "An inline-choice component.",
   "main": "src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "configure-test": "echo todo",
     "controller-test": "cd controller && npm run test",
     "test": "npm run configure-test && npm run controller-test"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "author": "ed.eustace@gmail.com",
   "license": "ISC",
